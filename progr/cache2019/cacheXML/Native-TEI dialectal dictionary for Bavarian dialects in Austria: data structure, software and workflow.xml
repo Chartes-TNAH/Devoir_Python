@@ -1,0 +1,54 @@
+<body>
+<p style="text-align:center;">
+<hi rend="bold" style="font-size:12pt">Native-TEI dialectal dictionary for Bavarian dialects in Austria: data
+                    structure, software and workflow</hi>
+</p>
+<p style="text-align:center;">
+<hi rend="superscript" style="font-size:12pt">1,2</hi>
+<hi style="font-size:12pt" xml:space="preserve">Jack Bowers, </hi>
+<hi rend="superscript" style="font-size:12pt">1</hi>
+<hi style="font-size:12pt" xml:space="preserve">Philipp Stöckle, </hi>
+<hi rend="superscript" style="font-size:12pt">1</hi>
+<hi style="font-size:12pt" xml:space="preserve">Ludwig Maximilian Breuer, </hi>
+<hi rend="superscript" style="font-size:12pt">1</hi>
+<hi style="font-size:12pt">Hans Christian Breuer</hi>
+</p>
+<p style="text-align:center;">
+<hi rend="superscript">1</hi>Austrian Center for
+                Digital Humanities, Austria</p>
+<p style="text-align:center;">
+<hi rend="superscript">2</hi>Inria - ALMAnaACH,
+                France</p>
+<p>This paper discusses the use of TEI in the creation of dually born-digital and print
+                dictionary as part of the Dictionary of Bavarian Dialects in Austria (Wörterbuch der
+                bairischen Mundarten in Österreich ‘WBÖ’). Also we discuss the creation of a
+                lexicographic editor tool that allows the non-TEI expert lexicographers to create
+                TEI articles in background of a user-friendly interface.</p>
+<p>This work being carried out is a continuation of a legacy project which began in 1913
+                when data began to be gathered throughout the Bavarian dialect area of the Austrian
+                Empire. The source material being used for the creation of the new articles was
+                collected and elicited using questionnaires and recorded on paper slips. Vocabulary
+                continued to be collected until the 1990’s when the analogue records were converted
+                to a TUSTEP database. Recently the database of more than 2.4 million entries has
+                been converted to TEI (Bowers &amp; Stöckle 2018).</p>
+<p>At the core of this project are several issues which are particularly significant in
+                the TEI, notably: a) the use of TEI as primary data format for the creation of both
+                a print and digital resource; b) the lexicographic editor tool which provides a
+                user-friendly and open-source alternative to Oxygen XML editor in the creation of
+                systematic and standardized TEI articles using ODD and YAML formatter; c) the
+                structural approach to dialectal dictionary entries in TEI (an
+                under-established/peripheral usage of the module). In our talk we describe the
+                specifics of each of these components of the project and expand upon what has been
+                previously presented about this work in Bowers et al. (2018a,b), focusing
+                particularly on the TEI article structure and the editor tool.</p>
+<p>
+<hi rend="bold">Works cited</hi>
+</p>
+<p>Bowers, J., &amp; Stöckle, P. (2018a). TEI and Bavarian dialect resources in Austria:
+                updates from the DBÖ and WBÖ. In A. U. Frank, C. Ivanovic, F. Mambrini, M.
+                Passarotti, &amp; C. Sporleder (Eds.), <hi rend="italic">second workshop
+                    on Corpus-Based Research in the Humanities (CRH-2)</hi>. Vienna, Austria:
+                Gerastree Proceedings, GTP 1.</p>
+<p>Bowers, J., Stöckle, P., Breuer, L. M., &amp; Breuer, H. C. (2018b). TEI born
+                articles on bavarian dialects - updates from the WBÖ. <hi rend="italic">Digital Humanities Austria 2018</hi>. Presented at the Salzburg. Austria.</p>
+</body>
