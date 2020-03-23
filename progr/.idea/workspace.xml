@@ -51,5 +51,9 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="372" y="225" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1584531251374" />
+    <state x="380" y="36" width="662" height="720" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584621847770">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="380" y="36" width="662" height="720" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1299.741@67.27.1299.741" timestamp="1584621847770" />
   </component>
 </project>

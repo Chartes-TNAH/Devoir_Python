@@ -66,6 +66,7 @@ with open('./cache2019/TEI2019.csv', 'w', newline='') as csvfile:
         abstract = soup("body")
         abstract = abstract[0]
         titre_dans_cache = titre[0]
+        titre_dans_cache = titre_dans_cache.replace(" ", "_")
         with open('./cache2019/cacheXML/%s.xml' % titre_dans_cache, 'w', encoding='UTF-8') as docXML:
             docXML.write(str(abstract))
         titre_dans_cache = titre_dans_cache + ".xml"
