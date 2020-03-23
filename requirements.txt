@@ -46,7 +46,7 @@ pluggy==0.6.0
 pokemon-terminal==1.2.0
 prettytable==0.7.2
 protobuf==3.0.0
-psutil==5.6.3
+psutil==5.6.6
 py==1.5.2
 pycairo==1.16.2
 pycrypto==2.6.1
