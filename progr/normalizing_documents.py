@@ -4,6 +4,8 @@ from lxml import etree
 Path = "./cache2019/cacheXML/"
 Path_output = "./cache2019/cacheTXT/"
 filelist = os.listdir(Path)
+if not os.path.exists("./cache2019/cacheXML"):
+    os.makedirs("./cache2019/cacheTXT")
 for abstract in filelist:
     if abstract.endswith(".xml"):
         try:

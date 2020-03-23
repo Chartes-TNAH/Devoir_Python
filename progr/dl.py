@@ -2,6 +2,7 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import csv
 import json
+import os
 
 content = urlopen('https://gams.uni-graz.at/context:tei2019.papers?context=context:tei2019.papers')
 HTML = content.read()
@@ -13,6 +14,11 @@ for link in soup.find_all('a'):
     if 'TEI_SOURCE' in link.get('href'):
         lien = link.get('href')
         listLink.append(lien)
+
+if not os.path.exists("./cache2019"):
+    os.makedirs("./cache2019")
+if not os.path.exists("./cache2019/cacheXML"):
+    os.makedirs("./cache2019/cacheXML")
 
 
 with open('./cache2019/liste_des_liens_internet.json', 'w') as liste_des_liens_internet:
