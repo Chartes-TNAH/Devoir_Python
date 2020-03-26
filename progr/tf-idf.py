@@ -4,12 +4,11 @@ import os
 Path = "./cache2019/cacheTXT/"
 filelist = os.listdir(Path)
 
-documents = ""
+documents = []
 for abstract in filelist:
     with open(Path + abstract, "r", encoding="UTF-8") as y:
         y = y.read()
-        documents = documents + y
-documents = documents.split()
+        documents.append(y)
 
 #vectorize the text i.e. convert the strings to numeric features
 vectorizer = TfidfVectorizer(stop_words='english')
