@@ -1,0 +1,56 @@
+<body>
+<p>May 2019 saw the launch of 
+        
+        <ref target="https://hallernet.org">hallerNet</ref>, a platform revolving around prominent
+            actors of the Enlightenment and nature research in eightteenth century Switzerland.
+            HallerNet aims to illuminate the transformation of the early modern <emph>République des
+               Lettres</emph> into the modern scientific community and its discipliniary
+            differentiation by combining digital source editions with a very rich body of
+            prosopographical and bibliographical research data.</p>
+<p>Whereas the online platform is brand new in its current shape, the underlying metadata
+            was compiled over a span of almost three decades. From the outset, the main focus of the
+            data collection was on Haller’s correspondence, the actors related to it and
+            bibliographic information – pertaining to Haller’s works, his library but also a vast
+            amount of secondary literature of note –, and resulting in encompassing print
+            publications such as <title level="m">Repertorium zu Albrecht von Hallers Korrespondenz
+               1724–1777</title> (<ref target="#Boschung" type="bibl">Boschung et al. 2002</ref>)
+            and <title level="m">Bibliographia Halleriana</title> (<ref target="#Steinke_2004" type="bibl">Steinke and Profos 2004</ref>). These endeavors led to a
+            voluminous research database with considerable depth (<ref target="#Steinke_2003" type="bibl">Steinke 2003</ref>), built up between 1991 and 2016 and
+            subsequently transformed into TEI (cf. <ref target="#Recker-Hamm" type="bibl">Recker-Hamm and Stuber 2015</ref>, <ref target="#Stuber_2019" type="bibl">Stuber,
+               Daengeli and Forney 2019</ref>). With the onset of a large project on Albrecht von
+            Haller’s reviews and letters, funded by the Swiss National Science Foundation
+            (2018–2023), all ca. nine thousand extant reviews by Haller will be edited in
+            conjunction with some eight thousand thematically related letters (on their relationship
+            cf. <ref target="#Stuber_2004" type="bibl">Stuber 2004</ref>).</p>
+<p>This undertaking, again, relies heavily on earlier research and more specifically on a
+            series of printed editions of Haller’s correspondence, which provides the basis for the
+            encoding of more than half of the selected letters. The proposed contribution will
+            discuss the process of the <emph>digitisation</emph> and re-working of such print
+            predecessors. Specifically, the fate of the footnote shall be pondered and the chosen
+            solution in the context of hallerNet editions presented, both on the level of the TEI
+            encoding and the presentational rendering. When developing the data model of these
+            re-editions it quickly showed that porting existing annotations from footnotes in print
+            to footnotes in the digital edition would not leverage the full potential of the new
+            environment. Instead, as much information as possible is attached to references to
+            database objects (persons, institutions, publications, plants and so on). Only critical
+            (philological) annotations and historical information that cannot be related to a
+            database object is retained in footnotes.</p>
+<p>The implemented model for annotated references is straightforward and basically consists
+            of notes in referencing strings. In the course of the re-edition, information on, e.g.,
+            the social position or the place of activity of an actor as it may be given in a legacy
+            footnote is brought over to the respective database object, from where it may be queried
+            also from other occurrences. Consequently, this interweaving of textual data with
+            extensive metadata makes it possible to evaluate this kind of information not only for a
+            single letter, but also for a correspondence as a whole and in doing so to derive and
+            compare social profiles of specific correspondences (<ref target="#Sonntag" type="bibl">Sonntag, Stuber and Forney 2019</ref>).</p>
+<p>A guiding principle of the migration from the (relatively) private database to TEI was
+            to allow for more openness. For one, both the transcribed documents but also the gist of   
+         the database objects will be made available in public in a FAIR repository. In addition
+            to this, the data will also be retrievable directly from the platform in a
+            programmatical manner. To this end the database objects are related to authority files
+            wherever possible so that the information may be shared with other projects and
+            resources. Besides using existing interfaces such as <ref target="https://correspsearch.net/">correspSearch</ref> and integrating the data
+            with, e.g., <ref target="https://histhub.ch/">HistHub</ref> and <ref target="https://www.metagrid.ch/en/">Metagrid</ref>, it will be very interesting to
+            provide access to specific bits of the valuable knowledge contained within the hallerNet
+            platform through nascent interfaces such as <ref target="https://github.com/GVogeler/prosopogrAPhI">prosopogrAPhI</ref>.</p>
+</body>

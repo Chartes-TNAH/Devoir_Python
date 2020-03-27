@@ -1,0 +1,78 @@
+<body>
+<p>Starting with P3 in 1994 (i.e., over two years before CSS1
+      was released), the <title>Guidelines</title> supported a
+      mechanism to indicate a default rendition, a way of saying
+      <q>all <gi>persName</gi> elements were in italics in the
+      original.</q> You would put the name of an element on the
+      <att>gi</att> attribute of a <gi>tagUsage</gi> element in order
+      to indicate which elements had a particular default
+      rendition.</p>
+<p>Starting in 2015-10 with P5 2.9.0, TEI introduced a new
+      method for the same purpose (and then phased out the original
+      method). In this new method you specify which elements a default
+      rendition applies to using the Cascading Style Sheets (CSS)
+      selection mechanism — you put a CSS selector on the
+      <att>selector</att> attribute of a <gi>rendition</gi>
+      element. But The TEI only defines <gi>selector</gi> as
+      <name>teidata.text</name> (which boils down to the RELAX NG
+      <name>string</name> datatype).</p>
+<p>This struck me as insufficient; formal syntactic validation
+      is in order. Thus I set about writing a regular expression to
+      validate CSS3 selectors. This presentation is about both the
+      process of creating said regular expression, and the result,
+      which is a regular expression just over 18,300 characters long
+      which I believe correctly matches valid CSS3 selectors and
+      correctly fails to match other strings.</p>
+<p>Topics to be addressed include the following.
+      <list type="gloss">
+<label>Obstacles to Writing</label>
+<item>
+<list type="gloss">
+<label>length and complexity</label>
+<item>How do you write such a long expression? The answer
+            is you don’t—you write a program to write the
+            expression. I wrote such a program in Perl, but plan to
+            re-write it in XSLT before the presentation.</item>
+<label>confusion</label>
+<item>There are some aspects of the CSS3 specification
+            that aren’t entirely clear, at least not to me.</item>
+<label>impossible</label>
+<item>According to several sources, CSS3 is not regular,
+            and thus it <emph>cannot</emph> be parsed with a
+            regexp. So how was I able to do this? I think there are
+            three contributing factors. I was
+            <list>
+<item>not dealing with all of CSS3, only with selectors;</item>
+<item>not trying to parse the selectors into their
+              component segments, but rather only trying to return
+              <q>yes</q> or <q>no</q>;</item>
+<item>unaware it was impossible until after I’d done
+              it.</item>
+</list>
+</item>
+</list>
+</item>
+<label>Features</label>
+<item>
+<list type="gloss">
+<label>output format</label>
+<item>The program will generate output in either RelaxNG or XSLT</item>
+<label>built-in tests</label>
+<item>The output includes a test suite of thousands of CSS3 selectors</item>
+<label>case</label>
+<item>Because of limitations in RelaxNG’s use of regular
+            expressions, the regular expression produced respects case
+            in some places where it should be ignored.</item>
+<label>language</label>
+<item>I did not write the portion of the regular
+            expression that tests a BCP 47 language tag, but rather
+            downloaded someone else’s</item>
+</list>
+</item>
+<label>Resource usage</label>
+<item>The regular expression runs very quickly in RelaxNG
+        using <name>jing</name>, and very slowly in XSLT using
+        <name>Saxon</name>.</item>
+</list>
+</p>
+</body>

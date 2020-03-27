@@ -1,0 +1,65 @@
+<body>
+<p>Making Linkable Data from Account Books: Bookkeeping Ontology in the Digital Edition
+                Publishing Cooperative for Historical Accounts</p>
+<p>Christopher Pollin and Kathryn Tomasek</p>
+<p>TEI2019, University of Graz</p>
+<p>Historical accounting records, a genre of manuscript document that can be encoded in
+                TEI/XML, can be a rich source about local social and economic relationships in the
+                past as well for comparative purposes. With the Digital Edition Publication
+                Cooperative for Historical Accounts (DEPCHA), documentary editors and developers in
+                the United States collaborated with digital humanists at the Zentrum für
+                Informationsmodellierung (Centre for Information Modeling) at the University of Graz
+                to apply a bookkeeping ontology to accounts.</p>
+<p>The main use cases for this project are the Financial Papers of George Washington
+                (Stertzer), accounting records from a store on the Stagville Plantation in North
+                Carolina (Brumfield and Agbe-Davies), and a day book kept by Laban Morey Wheaton, a
+                businessman who kept a dry goods store in Norton, Massachusetts, between 1828 and
+                1859 (Tomasek and Bauman).</p>
+<p>This paper focuses on a workflow for creating linkable data using the TEI <hi style="font-family:Courier">@ana</hi> attribute. While the Wheaton edition was
+                created using TEI-XML, the data for the Washington Financial Papers and for the
+                Stagville store were created using Drupal and FromthePage, respectively.
+                Transformation to TEI-XML for these records is an interim step for creating the RDF
+                for linking on the Web of Data (Pollin 2019). Examples will be drawn from the
+                Stagville/FromthePage and Wheaton/TEI-XML data. Upcoming work on building a bridge
+                from Drupal to TEI-XML is part of the project’s ongoing research agenda.</p>
+<p>Part of the workflow for creating RDF includes use of WikiData and OpenRefine. Since
+                the currency, goods, and services exchanged had contextual meanings grounded in both
+                place and time, ongoing work also focuses on mapping information from taxonomies
+                based on the digital editions of the primary sources to Historical Statistics of the
+                United States, a long-standing project in U.S. economic history. Examples will
+                include an alpha-version TEI taxonomy drawn from this source. Future work will
+                involve mapping taxonomies from the Washington Financial Papers onto this TEI
+                taxonomy and expanding it accordingly.</p>
+<p>References</p>
+<p>
+<hi rend="italic">Bicentennial Edition: Historical Statistics of the United States,
+                    Colonial Times to 1970</hi>. <ref target="https://www.census.gov/library/publications/1975/compendia/hist_stats_colonial-1970.html">https://www.census.gov/library/publications/1975/compendia/hist_stats_colonial-1970.html</ref>
+</p>
+<p>Brumfield, Ben, and Anna Agbe-Davies. Encoding Account Books Relating to Slavery in
+                the U.S. South. 2015. <ref target="https://medea.hypotheses.org/182">
+<hi rend="Internetverknüpfung">https://medea.hypotheses.org/182</hi>
+</ref>
+</p>
+<p>DEPCHA prototype: <ref target="https://gams.uni-graz.at/depcha">
+<hi rend="ListLabel_2">https://gams.uni-graz.at/depcha</hi>
+</ref>
+</p>
+<p>Historical Statistics of the United States. Millenial Edition Online. <ref target="https://hsus.cambridge.org/HSUSWeb/toc/hsusHome.do">
+<hi rend="Internetverknüpfung">https://hsus.cambridge.org/HSUSWeb/toc/hsusHome.do</hi>
+</ref>
+</p>
+<p>Pollin, Christopher. <ref target="https://chpollin.github.io/paper/RODBH_2019_paper_1.pdf">
+<hi rend="Internetverknüpfung">Digital Edition Publishing Cooperative for
+                        Historical Accounts and the Bookkeeping Ontology</hi>
+</ref>. forthcoming
+                2019. </p>
+<p>Stertzer, Jennifer. Working with the Financial Records of George Washington: Document
+                vs. Data. Digital Studies/Le champ
+                numérique<hi rend="italic" xml:space="preserve">. </hi>2014. DOI: <ref target="http://doi.org/10.16995/dscn.57">
+<hi rend="ListLabel_3">http://doi.org/10.16995/dscn.57</hi>
+</ref>
+</p>
+<p>Tomasek, Kathryn, and Syd Bauman. Encoding Financial Records for Historical Research.
+                Journal of the Text Encoding Initiative. 6. 2013. <ref target="https://journals.openedition.org/jtei/895">https://journals.openedition.org/jtei/895</ref>
+</p>
+</body>

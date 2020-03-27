@@ -1,0 +1,23 @@
+<body>
+<head>Introducing Objectification: when is an <ref target="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-object.html">&lt;object&gt;</ref> a <ref target="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-place.html">&lt;place&gt;</ref>?</head>
+<p> The TEI Guidelines recently (as of TEI P5 version 3.5.0, January 2019) added elements for describing objects and
+            encoding the names of objects. These elements include: <ref target="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-objectName.html">objectName</ref>, <ref target="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-object.html">object</ref>, <ref target="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-listObject.html">listObject</ref>
+<ref target="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-objectIdentifier.html">objectIdentifier</ref>,
+            as well as changes to many other elements to loosen their descriptions slightly. This paper will introduce these new
+            elements to TEI users who many not have had the chance to use them yet, as well as introduce potential uses for the
+            encoding of object descriptions in TEI files. </p>
+<p>The paper will not, however, merely introduce these elements, but will also look at changes still to be done in the
+            TEI Guidelines to fully support the description of objects. For example, much of the <ref target="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-object.html">object</ref> description content
+            model is taken wholesale from that for describing manuscripts. The <ref target="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-objectIdentifier.html">objectIdentifier</ref> was
+            based on the <ref target="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-msIdentifier.html">msIdentifier</ref> (with some important changes), and <ref target="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-object.html">object</ref> still has elements like
+               <ref target="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-msContents.html">msContents</ref> in its
+            content model. There are many changes that are still needed and this paper actively seeks to involve the community in
+            designing these changes. </p>
+<p>Changes are not only required to existing content models of elements, but also to clarify the semantics of the
+            distinctions between elements. Using examples of large objects such as the Central Library of the National Autonomous
+            University of Mexico (UNAM) (c.f. <ref target="https://en.wikipedia.org/wiki/Central_Library_(UNAM)">https://en.wikipedia.org/wiki/Central_Library_(UNAM)</ref>), which has substantial and important mosaics on its
+            external walls, this paper will ask where the border lines are between what one might consider an <ref target="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-object.html">object</ref> and what might instead
+            be encoded as a <ref target="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-place.html">place</ref>.
+            Concluding that the difference lies in the markup intent (as with so much in the TEI), this paper draws a distinction
+            between encoding for object description, and geo-political entities.</p>
+</body>

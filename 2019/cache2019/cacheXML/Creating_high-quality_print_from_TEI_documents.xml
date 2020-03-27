@@ -1,0 +1,36 @@
+<body>
+<div xml:id="OLE_LINK8">
+<head>Creating high-quality print from TEI documents</head>
+<p>Even in the age of digital editions a need for high-quality print versions of TEI
+                    documents remains, be it a print version of a single document or a book edition
+                    of a complete or partial digital edition.</p>
+<p>Of course, there is <ref target="https://www.w3.org/TR/xsl/">XSL-FO</ref> but the
+                    typesetting quality obtained by the freely available <ref target="https://xmlgraphics.apache.org/fop/">Apache FOP</ref> does not live
+                    up to very high demands. Obviously, one can yield to one of the commercial
+                    XSL-FO engines which do a rather impressive job. However, even the best XSL-FO
+                    engines are bound by the inherent limitations of XSL-FO which are crucial for
+                    critical editions, e.g. for formatting a complex text-critical apparatus.</p>
+<p>Fortunately, there has been a freely available typesetting system since the early
+                    1980s whose quality is widely acknowledged, namely LaTeX and the underlying TeX.
+                    The use of LaTeX for creating scholarly editions is therefore well-established
+                    (cf. the <ref target="https://www.ctan.org/pkg/reledmac">reledmac package</ref>
+                    and its predecessors). Likewise, LaTeX has been utilised before for typesetting
+                    TEI documents, e.g. within the <ref target="https://wiki.tei-c.org/index.php/Tei-xsl">XSL stylesheets</ref> for
+                    the TEI framework. However, using XSLT for transforming TEI documents to various
+                    formats has drawbacks, especially a rather high degree of redundancy and the
+                    consequential pain of maintenance.</p>
+<p>Luckily enough, the TEI Processing Model and ODD come to our rescue. They provide
+                    means for adding LaTeX to the output formats without too much hassle. Using the
+                        <ref target="https://gitlab.existsolutions.com/tei-publisher/tei-publisher-lib">TEI Publisher Libraries</ref> complex requirements can be easily realised
+                    within the TEI ODD in a descriptive, standardised way.</p>
+<p>This paper demonstrates how the portal of the <ref target="https://www.ssrq-sds-fds.ch/online/tei/">Law Sources Foundation of
+                        the Swiss Lawyers Society</ref> utilises the TEI Processing Model and LaTeX
+                    for preparing high-quality print versions. We will also propose two simple
+                    extensions to the TEI Processing Model, <gi>pb-template</gi> and
+                        <gi>pb-behaviour</gi>, which make it easier to generate arbitrary LaTeX from
+                    within the ODD using a straightforward <ref target="https://teipublisher.com/exist/apps/tei-publisher/doc/documentation.xml?odd=docbook.odd&amp;id=pb-template">template syntax</ref> As our implementation proves, with those minimal
+                    extensions the Processing Model becomes powerful and generic enough to cover
+                    complex, high-quality print.</p>
+<p>Authors: Meier Wolfgang, Ruef Bernhard</p>
+</div>
+</body>

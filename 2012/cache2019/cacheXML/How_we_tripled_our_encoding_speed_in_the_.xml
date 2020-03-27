@@ -1,0 +1,197 @@
+<body>
+<div xml:id="intro">
+<head>Introduction</head>
+<p>The <ref target="https://dvpp.uvic.ca">Digital Victorian Periodical Poetry</ref> (DVPP) project is a SSHRC-funded digital humanities
+               project based at the University of Victoria. With the guidance of principal investigator Dr. Alison Chapman, the DVPP team is creating
+               a digital index of British periodical poetry from the long nineteenth century. In addition to uncovering periodical poems, writing
+               descriptive metadata, and compiling prosopographical research, we are currently using TEI and CSS to encode a
+               statistically-representative sample of indexed poems, looking for quantitative evidence of literary change over time. Such an endeavour
+               requires a large and robust dataset covering a range of periodicals throughout the period.</p>
+<p>At the time of writing, there are over 13,000 poems in the database, and we expect that total to reach 20,000. Of these, around 2,000
+               will be encoded, focusing on the decade years (1820, 1830, 1840 and so on). </p>
+<p>When we initially received funding for this project, we were quite confident that we would be able to accomplish the collection of
+               page-images and metadata across the period, because we had been doing that work for some years and had a clear idea of the time and
+               resources required. However, a relatively small number of poems had been encoded, and the encoding time required had proved to be
+               significant. Our first pass of encoding goes beyond simple transcription and tagging of lines and line-groups to include rhyme-schemes and rhyme
+               types, refrains and similar devices such as anaphora and epistrophe, and detailed description of typographical style and layout using
+               CSS. These are all features that will form part of the analytic work to be done when the encoding is complete.</p>
+<figure>
+<graphic mimeType="image/png" url="info:fedora/o:tei2019.109" xml:id="IMAGE.1"/>
+<desc type="legend">Encoding speed improvements (yellow line with triangle markers).</desc>
+</figure>
+<p>Initial projections from our project diagnostics suggested that we would have some difficulty in accomplishing the tagging task within
+               the time available, so beginning towards the end of 2018, the encoding team (Fralick, Fukushima, Holmes, and Karlson) began a concerted
+               effort to develop tools and techniques to make our encoding faster and more effective. The results can be seen in the graph in <ptr target="#fig_01" type="crossref"/>, taken from our project diagnostics. In this presentation, we will describe and demonstrate some
+               of the techniques we deployed to make this improvement possible. We hope these examples, illustrations, and suggestions will be useful
+               to other projects endeavouring to make their encoding process more accurate and efficient. </p>
+</div>
+<div xml:id="headerAndOcr">
+<head>Automatic headers and OCR</head>
+<p>First of all, we eliminated all the work of setting up the XML file, completing the core metadata, and doing the transcription. Our
+               large database index of poetry includes metadata on all the poems, along with links to the page-images in which they appear. A build
+               process is able to export the SQL database as XML, process it into TEI files, and initiate an OCR process on each file, storing the
+               results in the form of a comment in the body of the TEI file. This removes the bulk of the transcription work, and relieves the encoder
+               of any responsibility for the metadata. The quality of the OCR is variable, but in almost all cases, proofing and correcting it is much
+               faster than transcribing manually (<ptr target="#fig_02" type="crossref"/> and <ptr target="#fig_03" type="crossref"/>).</p>
+<figure>
+<graphic mimeType="image/png" url="info:fedora/o:tei2019.109" xml:id="IMAGE.2"/>
+<desc type="legend">The TEI Header generated automatically from the database.</desc>
+</figure>
+<figure>
+<graphic mimeType="image/png" url="info:fedora/o:tei2019.109" xml:id="IMAGE.3"/>
+<desc type="legend">The results of OCR, stored as a comment in the XML.</desc>
+</figure>
+</div>
+<div xml:id="autoTagging">
+<head>Auto-tagging of an entire poem</head>
+<p>After correcting the results of the OCR against the original page-image, the next task for the encoder is to tag the structure of the
+               poem. Taking advantage of the support for Schematron QuickFix in the Oxygen XML Editor, we are able to completely automate the tagging
+               of lines and line-groups; the encoder simply has to copy/paste the text version of the poem into a <gi>div</gi>, right-click, and choose a
+               quick-fix, and the poem is automatically tagged with <gi>lg</gi> and <gi>l</gi> elements (<ptr target="#fig_04" type="crossref"/> and <ptr target="#fig_05" type="crossref"/>).</p>
+<figure>
+<graphic mimeType="image/png" url="info:fedora/o:tei2019.109" xml:id="IMAGE.4"/>
+<desc type="legend">A Schematron QuickFix for auto-tagging an entire poem.</desc>
+</figure>
+<figure>
+<graphic mimeType="image/png" url="info:fedora/o:tei2019.109" xml:id="IMAGE.5"/>
+<desc type="legend">The result of applying the Schematron QuickFix.</desc>
+</figure>
+</div>
+<div xml:id="keystrokes">
+<head>Keystroke shortcuts with special sauce</head>
+<p>Among the more straightforward tricks are obviously keystroke shortcuts for inserting special characters and XML tags. In addition to
+               the basics (<code>Alt + QUOTE</code> to insert a curly apostrophe, <code>Alt + M</code> to insert an em dash) we have also been able to
+               take advantage of the fact that Oxygen allows the use of XPath in keystroke shortcuts to provide a useful time-saver when tagging
+               rhyme. <code>Control + Alt + 0</code> will wrap a <gi>rhyme</gi> tag around selected text, but it does more than that; it uses XPath
+               regular expressions<note>See <ptr target="#example_01" type="crossref"/>. The XPath expression is relatively crude, but it generates
+                  correct results almost all the time.</note> to analyze the contents of the tag to determine whether the rhyme being tagged is most
+               likely masculine (one syllable) or feminine (two or more syllables), and applies the appropriate attribute value to the rhyme element. Although
+               there are of course other varieties of rhyme, in this collection masculine rhymes constitute 84% of the total and feminine rhymes more
+               than 9%. This little trick therefore provides an accurate rhyme tag more than 90% of the time (<ptr target="#fig_06" type="crossref"/>
+               and <ptr target="#fig_07" type="crossref"/>).</p>
+<figure>
+<graphic mimeType="image/png" url="file:///tag_rhyme_1109.png" xml:id="IMAGE.6"/>
+<desc type="legend">The encoder selects text, hits the shortcut and provides a label attribute.</desc>
+</figure>
+<figure>
+<graphic mimeType="image/png" url="info:fedora/o:tei2019.109" xml:id="IMAGE.7"/>
+<desc type="legend">The shortcut automatically detects the rhyme type as feminine.</desc>
+</figure>
+<figure xml:id="example_01">
+<egXML>
+<rhyme label="${ask('What label?', generic, 'a')}" type="dvpp:rhyme${xpath_eval(if (matches('${selection}', '[aeiouy][^aeiouy]+[aeiouy]') and not(matches('${selection}', '^[^aeiouy]*[aeiouy][^aeiouy]+ed?$'))) then 'Feminine' else 'Masculine')}">${selection}</rhyme>${caret} </egXML>
+<head type="legend">An Oxygen code template for tagging rhyme.</head>
+</figure>
+</div>
+<div xml:id="rhymeLabelling">
+<head>Rhyme-labelling tools</head>
+<p>The rhyme-labelling protocols in our project are a little unusual. First, we use both the <att>rhyme</att> attribute on <gi>lg</gi> to
+               specify the rhyme pattern for a stanza, and also the <att>label</att> attribute on individual <gi>rhyme</gi> elements to re-iterate
+               those labels. This duplication has two functions: first, it is easier to analyze the rhyme-scheme of a stanza while its encoding is
+               relatively uncluttered, so we do this before adding the <gi>rhyme</gi> elements to individual lines. Secondly, the duplication acts as
+               a check on the accuracy of the line-level labelling. If an encoder assigns <att>rhyme</att>=<val>cbcb</val> to the stanza, but then
+               inadvertently gives the third line <att>label</att>=<val>b</val>, our diagnostic rendering (of which more below) will catch this and
+               report the error (<ptr target="#fig_08" type="crossref"/>).</p>
+<figure>
+<graphic mimeType="image/png" url="info:fedora/o:tei2019.109" xml:id="IMAGE.8"/>
+<desc type="legend">Diagnostic report catching rhyme label inconsistency.</desc>
+</figure>
+<p> The second respect in which our rhyme-labelling differs from many conventional approaches is that we do not restart our rhyme
+               labelling from <val>a</val> with every new stanza, as is exemplified for example in the TEI Guidelines chapter on <title level="a">Verse</title>
+                  (<ref target="#guidelines" type="bibl">TEI 2019</ref>). Instead, we maintain a consistent use of the same label for the same sound
+               throughout a poem, no matter how long it is. If <q>love</q> is labelled as <val>a</val> in stanza one, then <q>dove</q> will be
+               labelled <val>a</val> in stanza 57. The reason for this is that we are interested in the effect of rhyme patterns across stanzas as
+               well as within them. It is certainly arguable that there is no plausible effect on the reader of the repetition of a sound dozens of
+               stanzas apart, but it is actually more difficult to specify an arbitrary distance beyond which rhyme recurrence is not relevant, and
+               use such a determination in our encoding, than it is to follow a single sequence throughout the poem.<note>For longer poems, when the
+                  26 letters of the alphabet are exhausted, we restart with <val>a1</val>, <val>b1</val>, <val>c1</val> etc., followed by <val>a2</val>, <val>b2</val>, <val>c2</val> as necessary.</note>
+</p>
+<p>However, this can make rhyme-labelling very difficult in a long poem; it is hard to remember, when encountering <q>night</q> at line
+               300, that <q>sight</q> and <q>flight</q> were actually rhymed 200 lines earlier and have the label <val>b</val>. Therefore we have
+               devised a tool based on an XSLT transformation that assists in this process. The encoder specifies the rhyme they are about to tag (say
+                  <q>night</q>), and the following process is run:</p>
+<list rend="bulleted">
+<item>Every instance of the word <q>night</q> tagged as a rhyme throughout the entire collection is collected. This might collect (for
+                  example) 40 instances of <q>night</q>.</item>
+<item>For each of those instances, all the rhymes tagged in the same poem with the same label as <q>night</q> are retrieved. This might
+                  collect 250 words rhyming with <q>night</q>.</item>
+<item>For each of those rhymes, all instances of those forms tagged as rhymes throughout the collection are retrieved. This might
+                  garner 300 words plausibly rhyming with <q>night</q>.</item>
+<item>For each of those rhymes, every form tagged in the same poem with the same label is retrieved. This might yield a total of (say)
+                  500 forms which probably rhyme with <q>night</q>. Of these, there might be 300 distinct forms (because of course there will be many
+                  duplicates).</item>
+<item>Finally, each of the distinct values in the list is checked against previously-tagged rhymes in the poem the encoder is working
+                  on. If any match, a report is generated as shown in <ptr target="#example_02" type="crossref"/>.</item>
+</list>
+<figure xml:id="example_02">
+<eg> POTENTIAL RHYMES FOR night FOUND IN POEM 478600 night (label = b) a | right (label = b) Night (label = b;) blight (label = b)
+                  flight (label = b;) </eg>
+<head type="legend">Report of previous lines in the same poem which are potential rhymes for the selected text.</head>
+</figure>
+<p>The encoder is thus able to see that earlier in their poem, <q>night</q>, <q>aright</q>, <q>Night</q>, <q>blight</q> and <q>flight</q>
+               have all been tagged with <att>label</att>=<val>b</val>, so that is the appropriate label to use. Since our current collection of
+               tagged rhymes is now well over 30,000, this tool really facilitates the encoding of longer poems.</p>
+<p>Sometimes, however, a previous instance of a rhyme may be missed, and instead of being given <att>label</att>=<val>b</val>, a rhyme may
+               be assigned a new label by mistake. When this is noticed, another transformation can be used to fix the problem. The user runs the
+               transformation, and supplies the label which was erroneously assigned, along with the correct label; the transformation then re-labels
+               the entire poem appropriately.</p>
+</div>
+<div xml:id="cssStyling">
+<head>CSS styling with rendition/@selector</head>
+<p>Throughout the nineteenth century, periodicals published poetry in a wide variety of formats and for many different reasons. Sometimes
+               poems were mere filler, inserted to avoid whitespace at the end of a prose article; in other cases, they form part of a prose article
+               on the theme of poetry; sometimes they serve as embellishments for illustrations; and sometimes they are appear as standalone works on
+               otherwise empty pages. Our researchers are interested in connections between form and function, and the relationships of poems to the
+               surrounding material, so it is essential that we capture key aspects of the appearance of poems, including alignment, font
+               styles/variants and size, margins, and indents, and in our HTML rendering of the poems (see below) we try to reproduce this as closely
+               as possible. In our early encoding, we captured these features using inline @style attributes, but the effect of this is to clutter the
+               poem text with complex property-value pairs which make the rest of the encoding harder to work with. As a result, we have switched to
+               using <gi>rendition</gi> elements in the header, and in particular to the relatively rarely-used <att>selector</att> attribute, which
+               enables us to describe the layout of a poem extremely efficiently, especially if it follows a regular pattern. For instance: <egXML>
+<rendition selector="lg">margin: 0.5em auto 0.5em 6em;</rendition>
+<rendition selector="l:nth-of-type(even)">margin-left: 1em;</rendition>
+</egXML> describes the layout of the example poem used in this article fully, positioning the line-groups within the page, and
+               indenting the second and fourth lines of every stanza. Where initially encoders were spending significant time inserting
+                  <att>style</att> attributes in multiple locations, they are now skilled at abstracting the layout of a poem into a couple of
+                  <gi>rendition</gi> elements in a few seconds.</p>
+</div>
+<div xml:id="feedback">
+<head>Instant feedback and error reporting</head>
+<p>Timely diagnostic checking of encoding is extremely important for any serious encoding project (see <ref target="#holmestakeda_2019" type="bibl">Holmes and Takeda 2019</ref>). In this project, we have found significant benefit in providing a
+               detailed rendering and report (<ptr target="#fig_09" type="crossref"/>) for encoders to use as they work, accessible through a
+               transformation scenario available from a single button click in the <title level="m">Oxygen</title> editor. 
+               <figure>
+<graphic mimeType="image/png" url="info:fedora/o:tei2019.109" xml:id="IMAGE.9"/>
+<desc type="legend">Rendered poem view with feedback report.</desc>
+</figure> This view allows the encoder to see at a glance the layout of the poem (as they have described it in CSS), check the rhymes
+               (through colour coding and reports on inconsistencies found, as shown in <ptr target="#fig_08" type="crossref"/>), as well as providing
+               additional hints for features not yet encoded, as described in the next section. </p>
+</div>
+<div xml:id="refrainDetection">
+<head>Auto-detection of anaphora, epistrophe and other refrain-like devices</head>
+<p>In addition to rhyme, we are encoding other features that involve repetitive forms and structures, such as full-scale refrains,
+               anaphora (repeating a word or words at the beginning of a line), and epistrophe (repetition at the end of a line). It is easy for an
+               encoder to miss such features in the midst of encoding rhyme and layout, so the rendering process includes a component which uses a
+               simple similarity metric to identify potential instances of these features. <ptr target="#fig_10" type="crossref"/> shows the output of
+               this function as applied to the example poem. 
+               <figure>
+<graphic mimeType="image/png" url="info:fedora/o:tei2019.109" xml:id="IMAGE.10"/>
+<desc type="legend">Potential untagged refrain devices identified by the diagnostic rendering.</desc>
+</figure> Here, lines 1 and 9 are similar enough to be tagged (<q>Awake to the sound of my sighing</q> / <q>Wake then to the sound of
+                  my sighing</q>), as are lines 2 and 10 (<q>Breeze, gentle breeze of the night</q> / <q>Breeze! quiet breeze of the night</q>).
+               Similarly, the phrase <q>breeze of the night</q> occurs again in line 14. The automated process enables us to ensure that we catch such
+               echoes even when they are distant from each other in a long poem, and it also gives us a focus, through the (albeit crude) score
+               calculation, to discuss and compare what might or might not constitute a real instance of a refrain device.</p>
+</div>
+<div xml:id="conclusion">
+<head>Conclusion</head>
+<p>Through a determined focus on developing tools and techniques to improve accuracy and efficiency, we have been able to make a
+               significant improvement in our encoding performance. This has been achieved through continuous dialog between the encoding team and the
+               programmer. We encourage encoders to express their difficulties and concerns, identify awkward and time-consuming parts of the process,
+               and suggest imaginative solutions. We have also been able to leverage the growing dataset of encoding already completed to help with
+               rhyme encoding in particular. Other significant factors include the instant feedback available as a diagnostic rendering of the poem
+               while encoding; a project-level diagnostic process which continuously measures and reports on our progress through the dataset; and the
+               fact that the programmer is also required to do significant amounts of encoding himself, so he encounters first-hand the problems the
+               team is facing, and the frustrations and inadequacies of the solutions provided so far.</p>
+</div>
+</body>
