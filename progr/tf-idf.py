@@ -4,7 +4,6 @@ import os
 Path = "./cache2019/cacheTXT/"
 filelist = os.listdir(Path)
 
-documents = []
 for abstract in filelist:
     with open(Path + abstract, "r", encoding="UTF-8") as y:
         y = y.read()
@@ -15,7 +14,7 @@ vectorizer = TfidfVectorizer(stop_words='english')
 X = vectorizer.fit_transform(documents)
 
 #cluster documents, ici 10 clusters
-true_k = 10
+true_k = 3
 model = KMeans(n_clusters=true_k, init='k-means++', max_iter=100, n_init=1)
 model.fit(X)
 
