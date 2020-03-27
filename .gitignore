@@ -1,8 +1,15 @@
-progr/test.py
-progr/cache2019
-progr/__pycache__
-progr/sklearn-venv
-progr/venv
-progr/.*
-progr/test2.py
+2019/test.py
+2019/cache2019
+2019/__pycache__
+2019/sklearn-venv
+2019/venv
+2019/.*
+2019/test2.py
+2012/test.py
+2012/cache2012
+2012/__pycache__
+2012/sklearn-venv
+2012/venv
+2012/.*
+2012/test2.py
 
