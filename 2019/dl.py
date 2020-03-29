@@ -55,7 +55,6 @@ with open('./cache2019/TEI2019.csv', 'w', newline='') as csvfile:
     for key in dicoXML:
         value = dicoXML[i]
         soup = BeautifulSoup(value, 'xml')
-        noms = []
         print("Récupération des autorités...")
         for contributeur in tqdm(soup.find_all('author')):
             for elem in soup.name:
