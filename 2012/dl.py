@@ -22,8 +22,6 @@ for hr in tqdm(soup.find_all("hr")):
             break
         liste_des_abstracts[i] = item
 
-    with open('./cache2012/liste_des_documents_encodes.json', 'a', encoding='UTF-8') as docjson:
-        json.dump(liste_des_abstracts, docjson)
-
+print(liste_des_abstracts)
 
 
