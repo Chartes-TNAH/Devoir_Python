@@ -15,3 +15,4 @@ spacy==2.2.4
 tqdm==4.45.0
 urllib3==1.25.8
 urlopen==1.0.0
+notebook==6.0.3
