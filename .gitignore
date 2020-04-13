@@ -15,3 +15,6 @@
 progr
 .*
 venv
+
+2016/cache2016
+2016/__pycache__
