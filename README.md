@@ -24,6 +24,7 @@ Si cela ne fonctionne toujours pas, vous pouvez finalement tenter l'installation
 ## Installation de LDA Mallet ##
 
 ***IMPORTANT***
+
 Pour l'étape de Topic Modelling, nous utiliserons deux algorithmes : l'algorithme intégré de Gensim et l'algorithme de Mallet. L'algorithme de Mallet est téléchargé via l'application, mais il faut une étape manuelle intermédiaire.
 Tout d'abord, il faut installer le compilateur Ant Apache. Pour la distribution Ubuntu, il faut simplement taper en ligne de commande " sudo apt-get ant ".
 
