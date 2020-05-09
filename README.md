@@ -21,17 +21,16 @@ Le corpus d'entraînement pour la lemmatisation de spacy peut ne pas s'installer
 Si cela ne fonctionne toujours pas, vous pouvez finalement tenter l'installation dans le Jupyter Notebook en créant une nouvelle cellule où vous écrirez puis activerez cela :
 - pip install https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.5/en_core_web_sm-2.2.5.tar.gz
 
-## Installation de LDA Mallet ##
+# Installation de LDA Mallet #
 
 ***IMPORTANT***
 
-Pour l'étape de Topic Modelling, nous utiliserons deux algorithmes : l'algorithme intégré de Gensim et l'algorithme de Mallet. L'algorithme de Mallet est téléchargé via l'application, mais il faut une étape manuelle intermédiaire.
-Tout d'abord, il faut installer le compilateur Ant Apache. Pour la distribution Ubuntu, il faut simplement taper en ligne de commande " sudo apt-get ant ".
+Pour l'étape de Topic Modelling, nous utiliserons deux algorithmes : l'algorithme intégré de Gensim en python et l'algorithme de Mallet. L'algorithme de Mallet est téléchargé via l'application, mais étant écrit en java, il nécessite d'être compilé avant d'être utilisé.
 
-Une fois Ant installé, **lorsque vous serez arrivé à l'étape 5 dans la cellule du notebook concernée**, vous irez dans le cache (par exemple : **./2019/cache2019/Mallet**) et
-vous taperez, une fois dans le fichier " Mallet " (par exemple : //cache2016/Mallet), la commande " ant ". Cela permettra de compiler Mallet.
+Une case est dédiée à la compilation. Cependant, **il faut installer Ant Apache sur votre ordinateur pour que la compilation fonctionne**. En effet, j'utilise Ant Apache pour compiler l'algorithme de Mallet.
 
-Ensuite, il faudra continuer de suivre le notebook.
+Pour installer Ant Apache sur la distribution Ubuntu, il faut simplement taper en ligne de commande " sudo apt-get ant ".
+
 
 ## Sens de lecture ##
 
